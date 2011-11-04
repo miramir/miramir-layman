@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layman>
+  <overlay name="miramir_repo" quality="experimental" status="unofficial"
+    type="mercurial" src="https://bitbucket.org/miramir/miramir_repo">
+    <link>https://bitbucket.org/miramir/miramir_repo</link>
+    <description>Miramir repos, experimental overlay for Gentoo</description>
+  </overlay>
+</layman>

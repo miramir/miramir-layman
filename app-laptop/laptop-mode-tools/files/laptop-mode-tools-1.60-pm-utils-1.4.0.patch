@@ -1,0 +1,26 @@
+diff -c laptop-mode-tools_1.60.orig/install.sh laptop-mode-tools_1.60/install.sh
+*** laptop-mode-tools_1.60.orig/install.sh	2011-10-14 13:40:08.000000000 +0600
+--- laptop-mode-tools_1.60/install.sh	2011-10-18 13:36:14.143026741 +0600
+***************
+*** 179,198 ****
+    exit 23
+  fi
+  
+- 
+- # Install pm-utils hook only if pm-utils config dir is present, or force the
+- # install if we have a DESTDIR.
+- if [ -n "$DESTDIR" -o -d "$DESTDIR/usr/lib/pm-utils/sleep.d" ] ; then
+- 	if ( ! $INSTALL -D -m 755 usr/lib/pm-utils/sleep.d/01laptop-mode "$DESTDIR/usr/lib/pm-utils/sleep.d/01laptop-mode" ) ; then
+- 		echo "$0: Failed to install 01-laptop-mode into /usr/lib/pm-utils/sleep.d. Installation failed."
+- 		exit 36
+- 	fi
+- fi
+- 
+- if [ -f "$DESTDIR/usr/lib/pm-utils/sleep.d/99laptop-mode" ]; then
+- 	rm -f $DESTDIR/usr/lib/pm-utils/sleep.d/99laptop-mode;
+- fi
+- 
+  # udev rule
+  if ( ! $INSTALL -D -m 644 etc/rules/99-laptop-mode.rules "$DESTDIR/etc/udev/rules.d/99-laptop-mode.rules" ) ; then
+      echo "$0: Failed to install udev rule into /etc/udev/rules.d/ Installation failed."
+--- 179,184 ----
