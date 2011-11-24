@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/www-plugins/adobe-flash/adobe-flash-11.0.1.152.ebuild,v 1.2 2011/10/05 12:32:41 scarabeus Exp $
 
 EAPI=4
+inherit eutils
 
 DESCRIPTION="PhpStorm IDE EAP"
 SRC_URI="http://download.jetbrains.com/webide/PhpStorm-EAP-${PV}.tar.gz"
@@ -23,6 +24,11 @@ INSTALL_BASE="/opt/phpstorm-eap"
 #QA_PREBUILT="opt/*"
 
 src_install() {
+	echo "--- ${FILESDIR}/phpstorm.desktop ---"
+	domenu "${FILESDIR}/phpstorm.desktop" || die
+	insinto /usr/share/icons/hicolor/128x128/apps
+	newins "PhpStorm-${PV}/bin/webide.png" phpstorm.png
+
 	insinto ${INSTALL_BASE}
 	doins -r PhpStorm-${PV}/* || die
 	fperms a+rx ${INSTALL_BASE}/bin/fsnotifier
@@ -31,5 +37,6 @@ src_install() {
 
 	dodir /opt/bin
 	dosym ${INSTALL_BASE}/bin/phpstorm.sh /opt/bin/phpstorm
+
 }
 
