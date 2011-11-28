@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<layman>
-  <overlay name="miramir_repo" quality="experimental" status="unofficial"
-    type="git" src="https://code.google.com/p/miramir-layman/">
-    <link>https://code.google.com/p/miramir-layman/</link>
-    <description>Miramir repos, experimental overlay for Gentoo</description>
-  </overlay>
-</layman>
+<!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
+<repositories xmlns="" version="1.0">
+  <repo quality="experimental" status="unofficial">
+    <name>miramir-repo</name>
+    <description lang="en">Miramir repos, experimental overlay for Gentoo</description>
+    <homepage>http://code.google.com/p/miramir-layman/</homepage>
+    <owner type="person">
+      <email>gmiramir@gmail.com</email>
+      <name>miramir</name>
+    </owner>
+    <source type="git">https://code.google.com/p/miramir-layman/</source>
+  </repo>
+</repositories>
