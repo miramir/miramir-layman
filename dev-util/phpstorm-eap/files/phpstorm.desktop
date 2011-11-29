@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=PhpStorm
-Type=Application
-Comment=IDE for web dewelopment
-Exec=phpstorm
-TryExec=phpstorm
-Icon=phpstorm
-Categories=Development;IDE;
