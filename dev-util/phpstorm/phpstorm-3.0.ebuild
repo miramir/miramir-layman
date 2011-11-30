@@ -20,8 +20,9 @@ src_install() {
 	fperms a+x /opt/${PN}/bin/fsnotifier64 || die "Chmod failed"
 	dosym /opt/${PN}/bin/phpstorm.sh /usr/bin/phpstorm
 
-	doicon "bin/webide.png"
-	make_desktop_entry ${PN} "PHP Storm" "/opt/${PN}/bin/webide.png"
+	mv "bin/webide.png" "bin/phpstorm.png"
+	doicon "bin/phpstorm.png"
+	make_desktop_entry ${PN} "PHP Storm" "phpstorm"
 }
 pkg_postinst() {
     elog "Run /usr/bin/phpstorm"
