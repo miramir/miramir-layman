@@ -16,6 +16,10 @@ src_install() {
 	cd pycharm-${PV}
 	doins -r *
 	fperms a+x /opt/${PN}/bin/pycharm.sh || die "fperms failed"
+	fperms a+x /opt/${PN}/bin/fsnotifier || die "fperms failed"
+	fperms a+x /opt/${PN}/bin/fsnotifier64 || die "fperms failed"
+	fperms a+x /opt/${PN}/bin/inspect.sh || die "fperms failed"
+	fperms a+x /opt/${PN}/bin/inspect_diff.sh || die "fperms failed"
 	dosym /opt/${PN}/bin/pycharm.sh /usr/bin/pycharm-eap
 
 	cp bin/PyCharm_32.png bin/PyCharm-EAP.png
