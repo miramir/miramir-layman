@@ -14,14 +14,13 @@ src_install() {
 		
 	insinto /opt/${PN}
 	cd pycharm-${PV}
-	echo "-----"; pwd; echo "-------";
 	doins -r *
 	fperms a+x /opt/${PN}/bin/pycharm.sh || die "fperms failed"
 	dosym /opt/${PN}/bin/pycharm.sh /usr/bin/pycharm-eap
 
 	cp bin/PyCharm_32.png bin/PyCharm-EAP.png
 	doicon "bin/PyCharm-EAP.png"
-	make_desktop_entry ${PN} "PyCharm" "PyCharm-EAP"
+	make_desktop_entry ${PN} "PyCharm-EAP" "PyCharm-EAP"
 }
 pkg_postinst() {
     elog "Run /usr/bin/pycharm"
