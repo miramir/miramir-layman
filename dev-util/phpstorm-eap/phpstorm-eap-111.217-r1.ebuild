@@ -1,13 +1,14 @@
 inherit eutils
 EAPI=4
-DESCRIPTION="PhpStorm"
 HOMEPAGE="http://www.jetbrains.com/phpstorm/"
 
 if [ "${PN}" = "phpstorm-eap" ]; then
+	DESCRIPTION="PhpStorm (Eap version)"
 	SRC_URI="http://download.jetbrains.com/webide/PhpStorm-EAP-${PV}.tar.gz"
 	KEYWORDS="~x86 ~amd64"
 	PROGNAME="PHP Storm EAP"
 else
+	DESCRIPTION="PhpStorm"
 	SRC_URI="http://download.jetbrains.com/webide/PhpStorm-${PV}.tar.gz"
 	KEYWORDS="x86 amd64"
 	PROGNAME="PHP Storm"
@@ -31,7 +32,7 @@ src_install() {
 	
 	mv "bin/webide.png" "bin/${PN}.png"
 	doicon "bin/${PN}.png"
-	make_desktop_entry ${PN} "PHP Storm EAP" "${PN}"
+	make_desktop_entry ${PN} "${PROGNAME}" "${PN}"
 }
 pkg_postinst() {
     elog "Run /usr/bin/${PN}"
