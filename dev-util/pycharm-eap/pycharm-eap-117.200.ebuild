@@ -1,4 +1,5 @@
 inherit eutils
+PV="2.5"
 DESCRIPTION="PyCharm"
 HOMEPAGE="www.jetbrains.com/pycharm/"
 SRC_URI="http://download.jetbrains.com/python/pycharm-${PV}.tar.gz"
