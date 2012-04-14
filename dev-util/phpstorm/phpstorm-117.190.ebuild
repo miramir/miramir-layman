@@ -1,11 +1,13 @@
 inherit eutils
+#PVERSION=${PV}
+PVERSION='4.0'
 EAPI=4
 HOMEPAGE="http://www.jetbrains.com/phpstorm/"
 
-DESCRIPTION="PhpStorm (Eap version)"
-SRC_URI="http://download.jetbrains.com/webide/PhpStorm-4.0.tar.gz"
+DESCRIPTION="PhpStorm"
+SRC_URI="http://download.jetbrains.com/webide/PhpStorm-${PVERSION}.tar.gz"
 KEYWORDS="~x86 ~amd64"
-PROGNAME="PHP Storm EAP"
+PROGNAME="PHP Storm"
 
 RESTRICT="strip mirror"
 DEPEND=">=virtual/jre-1.6"
