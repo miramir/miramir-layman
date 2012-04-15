@@ -2,13 +2,13 @@
 <!DOCTYPE repositories SYSTEM "/dtd/repositories.dtd">
 <repositories xmlns="" version="1.0">
   <repo quality="experimental" status="unofficial">
-    <name>miramir-repo</name>
+    <name>miramir</name>
     <description lang="en">Miramir repos, experimental overlay for Gentoo</description>
-    <homepage>http://code.google.com/p/miramir-layman/</homepage>
+    <homepage>https://github.com/miramir/miramir-layman.git</homepage>
     <owner type="person">
       <email>gmiramir@gmail.com</email>
       <name>miramir</name>
     </owner>
-    <source type="git">https://code.google.com/p/miramir-layman/</source>
+    <source type="git">https://github.com/miramir/miramir-layman.git</source>
   </repo>
 </repositories>
