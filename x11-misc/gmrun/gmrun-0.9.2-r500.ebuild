@@ -26,8 +26,8 @@ src_prepare() {
 		"${FILESDIR}"/${P}-gcc43.patch \
 		"${FILESDIR}"/${P}-sysconfdir.patch \
 		"${FILESDIR}"/${P}-glibc210.patch \
-		"${FILESDIR}"/${P}-centrize.patch \
 		"${FILESDIR}"/${P}-termcommand.patch \
+		"${FILESDIR}"/${P}-centered_window.patch
 
 	# Disable check for STLport due to bug #164339
 	sed -i -e 's,^AC_PATH_STLPORT,dnl REMOVED ,g' configure.in
