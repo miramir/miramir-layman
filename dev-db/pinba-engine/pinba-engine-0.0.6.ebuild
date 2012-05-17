@@ -10,7 +10,7 @@ SRC_URI="http://pinba.org/files/pinba_engine-${PV}.tar.gz"
 
 LICENSE="GPL"
 SLOT="0"
-KEYWORDS="~x86"
+KEYWORDS="~x86 ~amd64"
 #IUSE="libevent mysql mariadb"
 IUSE=""
 DEPEND="dev-libs/protobuf
