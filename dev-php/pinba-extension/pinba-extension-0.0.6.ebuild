@@ -24,32 +24,5 @@ DEPEND="dev-lang/php
 RDEPEND="${DEPEND}"
 
 
-#rc_configure() {
-#cd pinba-${PV}	
-#phpize
-	#eautoconf
-	#eaclocal
-	#utoreconf
-#
 S="${WORKDIR}/pinba_extension-${PV}"
-#src_unpack() {
-#	PN="pinba_extension"
-#}
-src_prepare() {
-	php-ext-source-r2_src_prepare
-}
-src_configure() {
-	php-ext-source-r2_src_configure
-}
-#need_php_by_category
-src_install() {
-	php-ext-source-r2_src_install
-	dodoc NEWS README CREDITS
-#	dodir "${PHP_EXT_SHARED_DIR}"
 
-#insinto "${PHP_EXT_SHARED_DIR}"
-#	doins pinba.php
-
-	#einstall
-	#php-lib-r1_src_install ./ 
-}
