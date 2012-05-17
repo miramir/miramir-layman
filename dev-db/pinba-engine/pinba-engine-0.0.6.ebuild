@@ -15,7 +15,7 @@ KEYWORDS="~x86 ~amd64"
 IUSE="mariadb mysql"
 DEPEND="dev-libs/protobuf
 	dev-libs/judy
-	virtual/mysqli
+	virtual/mysql
 	app-portage/portage-utils" 
 RDEPEND="${DEPEND}"
 MYSQL_SRC_PATH=""
