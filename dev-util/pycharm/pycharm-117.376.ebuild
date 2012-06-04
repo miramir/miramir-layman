@@ -1,3 +1,4 @@
+EAPI="4"
 inherit eutils
 #PVERSION=${PV}
 PVERSION="2.5.1"
@@ -9,7 +10,6 @@ DEPEND=">=virtual/jre-1.6"
 RDEPEND="${DEPEND}"
 RESTRICT="strip mirror"
 SLOT="0"
-EAPI="4"
 S=${WORKDIR}
 src_install() {	
 	dodir /opt/${PN}
