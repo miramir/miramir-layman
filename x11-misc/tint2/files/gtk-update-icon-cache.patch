@@ -1,0 +1,7 @@
+--- src/tint2conf/CMakeLists.txt	2012-01-01 21:38:34.000000000 +0400
++++ src/tint2conf/CMakeLists.txt_	2012-01-01 21:45:19.000000000 +0400
+@@ -48,4 +48,3 @@
+ install( PROGRAMS tintwizard.py DESTINATION bin )
+ install( FILES taskbar.svg DESTINATION ${DATADIR}/icons/hicolor/scalable/apps )
+ install( FILES tint2conf.desktop DESTINATION ${DATADIR}/applications )
+-install( CODE "execute_process(COMMAND gtk-update-icon-cache -f -t ${DATADIR}/icons/hicolor WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX})" )
