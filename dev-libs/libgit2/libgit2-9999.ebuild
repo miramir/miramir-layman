@@ -14,7 +14,7 @@ EGIT_MASTER="development"
 
 LICENSE="GPL-2-with-linking-exception"
 SLOT="0"
-KEYWORDS="~amd64 ~x86 ~ppc-macos"
+KEYWORDS=""
 IUSE="examples test"
 
 RDEPEND="sys-libs/zlib"
