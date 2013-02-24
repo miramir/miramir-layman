@@ -1,10 +1,11 @@
 # Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
-EAPI=3
+EAPI=5
 PHP_EXT_NAME="pinba"
 PHP_EXT_INI="yes"
 PHP_EXT_ZENDEXT="no"
+USE_PHP="php5-3 php5-4"
 inherit php-ext-source-r2 git autotools
 DESCRIPTION="Pinba is a realtime monitoring/statistics server for PHP using MySQL as a read-only interface."
 HOMEPAGE="http://pinba.org/"
