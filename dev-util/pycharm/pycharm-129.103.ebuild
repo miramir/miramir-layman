@@ -1,7 +1,7 @@
 EAPI="4"
 inherit eutils
 PVERSION=${PV}
-#PVERSION="2.5.2"
+#PVERSION="2.7.1"
 DESCRIPTION="PyCharm"
 HOMEPAGE="www.jetbrains.com/pycharm/"
 SRC_URI="http://download.jetbrains.com/python/pycharm-${PVERSION}.tar.gz"
