@@ -1,6 +1,6 @@
 EAPI=4
 inherit eutils
-#PVERSION='6.0'
+#PVERSION='6.0.2'
 EAP='-EAP'
 #EAP="-6-Preview"
 
