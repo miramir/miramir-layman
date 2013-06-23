@@ -1,0 +1,33 @@
+# ChangeLog for net-ftp/vsftpd-devnet
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  12 Aug 2012; Mike Gilbert <floppym@gentoo.org> vsftpd-devnet-2.1.2_p1.ebuild:
+  Update selinux policy.
+
+  04 Sep 2009; Peter Volkov <pva@gentoo.org>
+  files/vsftpd-devnet-2.1.0-dont-link-caps.patch:
+  Updated patch to make it appliable, bug #283110 reported by skobkin.
+
+  01 Aug 2009; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  -vsftpd-devnet-2.1.0_p1.ebuild:
+  Drop old version
+
+  31 Jul 2009; KostyaSha (integer) <gentoo.integer@gmail.com>
+  +vsftpd-devnet-2.1.2_p1.ebuild:
+  version bump
+
+  15 Apr 2009; KostyaSha (integer) <gentoo.integer@gmail.com>
+  vsftpd-devnet-2.1.0_p1.ebuild, files/vsftpd-devnet-2.1.0-gentoo.patch,
+  files/vsftpd.init:
+  Changing default background state and reverting to portage init script due
+  comments on bug 261730
+
+  11 Mar 2009; KostyaSha (integer) <gentoo.integer@gmail.com>
+  +vsftpd-devnet-2.1.0_p1.ebuild,
+  +files/vsftpd-devnet-2.1.0-dont-link-caps.patch,
+  +files/vsftpd-devnet-2.1.0-gentoo.patch, +files/vsftpd.conf,
+  +files/vsftpd.init, +files/vsftpd.logrotate, +files/vsftpd.xinetd,
+  +metadata.xml:
+  New ebuild for bug 261730 thanks to pva
+
