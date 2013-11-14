@@ -39,5 +39,5 @@ src_install() {
 	doexe "plugin_host"
 	doexe "crash_reporter"
 	dosym "/opt/${PN}/sublime_text" /usr/bin/subl
-	make_desktop_entry "subl" "Sublime Text Editor" "accessories-text-editor" "TextEditor"
+	make_desktop_entry "subl" "Sublime Text Editor" "accessories-text-editor" "Development"
 }
