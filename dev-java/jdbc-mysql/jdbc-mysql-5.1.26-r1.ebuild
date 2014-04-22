@@ -1,6 +1,5 @@
 # Copyright 1999-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-java/jdbc-mysql/jdbc-mysql-5.1.26.ebuild,v 1.1 2013/09/14 13:38:22 tomwij Exp $
 
 EAPI="5"
 
@@ -28,10 +27,10 @@ COMMON_DEP="
 	log4j? ( dev-java/log4j:0 )
 	c3p0? ( dev-java/c3p0:0 )"
 
-RDEPEND=">=virtual/jre-1.7
+RDEPEND=">=virtual/jre-1.6
 	${COMMON_DEP}"
 
-DEPEND=">=virtual/jdk-1.7.0
+DEPEND=">=virtual/jdk-1.6
 	${COMMON_DEP}"
 
 S="${WORKDIR}/${MY_P}"
@@ -42,7 +41,7 @@ java_prepare() {
 	# http://bugs.mysql.com/bug.php?id=28286
 	epatch "${FILESDIR}/5.0.5-dist-target-depends.patch"
 
-	# Use java6 for everything except jdbc3 - #283848
+	# Avoid requirement on Java 1.5 - #283848
 	epatch "${FILESDIR}/5.1.14-java6.patch"
 
 	find . -name '*.jar' -print -delete || die
