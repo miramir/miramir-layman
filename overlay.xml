@@ -10,5 +10,6 @@
       <name>miramir</name>
     </owner>
     <source type="git">https://github.com/miramir/miramir-layman.git</source>
+    <feed>https://github.com/miramir/miramir-layman/commits/master.atom</feed>
   </repo>
 </repositories>
