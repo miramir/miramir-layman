@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI="5"
 
 # needed by make_desktop_entry
 inherit eutils
@@ -22,7 +22,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 RESTRICT="mirror"
 
-RDEPEND="media-libs/libpng:1.2
+RDEPEND="media-libs/libpng
 	>=x11-libs/gtk+-2.24.8-r1:2"
 
 src_install() {
@@ -39,5 +39,5 @@ src_install() {
 	doexe "plugin_host"
 	doexe "crash_reporter"
 	dosym "/opt/${PN}/sublime_text" /usr/bin/subl
-	make_desktop_entry "subl" "Sublime Text Editor" "accessories-text-editor" "TextEditor"
+	make_desktop_entry "subl" "Sublime Text Editor" "accessories-text-editor" "Development"
 }
