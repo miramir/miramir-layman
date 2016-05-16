@@ -53,7 +53,8 @@ RDEPEND="aac? ( media-libs/faad2 )
 	zip? ( dev-libs/libzip
 	sys-libs/zlib )
 	curl? ( net-misc/curl )
-	infobar? ( net-misc/curl )"
+	infobar? ( net-misc/curl )
+	dev-libs/jansson"
 
 DEPEND="
 	dev-util/intltool
