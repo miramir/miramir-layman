@@ -13,7 +13,7 @@ S="${WORKDIR}/sublime_text_3"
 
 DESCRIPTION="Sublime Text is a sophisticated text editor for code, html and prose"
 HOMEPAGE="http://www.sublimetext.com"
-COMMON_URI="http://c758482.r82.cf2.rackcdn.com"
+COMMON_URI="https://download.sublimetext.com"
 SRC_URI="amd64? ( ${COMMON_URI}/${MY_P}_x64.tar.bz2 )
 	x86? ( ${COMMON_URI}/${MY_P}_x32.tar.bz2 )"
 LICENSE="Sublime"
