@@ -1,0 +1,15 @@
+# ChangeLog for dev-php/pecl-zmq
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  09 May 2015; Thomas Sachau (Tommy[D]) <tommy@gentoo.org>
+  pecl-zmq-1.1.2.ebuild:
+  Remove useflag for php:5.3, which is no longer in main tree
+
+*pecl-zmq-1.1.2 (13 Dec 2014)
+
+  13 Dec 2014; Michael Cordingley (mcordingley) <Michael.Cordingley@gmail.com>
+  +pecl-zmq-1.1.2.ebuild, +metadata.xml:
+  Adding dev-php/pecl-zmq. Thanks to xiaomiao for ebuild troubleshooting and
+  Tommy[D] for reviewing, bug 325351
+
