@@ -1,28 +1,30 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
-EAPI="5"
+EAPI=6
 
 inherit eutils
 DESCRIPTION="Free calls, text and picture sharing with anyone, anywhere!"
-HOMEPAGE="http://www.viber.com"
+HOMEPAGE="https://www.viber.com"
 SRC_URI="http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb"
 
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 RESTRICT="strip"
 S="${WORKDIR}"
 
-src_unpack() {
-	default_src_unpack
-	unpack ./data.tar.gz
-	epatch "${FILESDIR}/00-desktop.patch"
+src_prepare() {
+		unpack ./control.tar.gz
+		unpack ./data.tar.xz
+
+		eapply "${FILESDIR}/${PN}-9999-desktop.patch"
+		eapply_user
+		
 }
 
-src_install(){
-	doins -r opt usr
-	fperms 755 /opt/viber/Viber
+src_install() {
+		doins -r opt usr
+		fperms 0755 /opt/viber/Viber
 }
-
