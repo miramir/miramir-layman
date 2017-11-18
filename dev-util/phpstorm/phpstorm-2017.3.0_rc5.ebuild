@@ -1,7 +1,7 @@
 EAPI=4
 inherit eutils
 
-EAP_VERSION='EAP-173.2463.17'
+EAP_VERSION='EAP-173.3727.8'
 
 HOMEPAGE="http://www.jetbrains.com/phpstorm/"
 DESCRIPTION="PhpStorm"
