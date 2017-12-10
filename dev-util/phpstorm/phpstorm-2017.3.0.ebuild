@@ -32,8 +32,11 @@ src_install() {
 	fperms a+x /opt/${PN}/bin/phpstorm.sh || die "Chmod failed"
 	fperms a+x /opt/${PN}/bin/fsnotifier || die "Chmod failed"
 	fperms a+x /opt/${PN}/bin/fsnotifier64 || die "Chmod failed"
-	fperms a+x /opt/${PN}/bin/fsnotifier-arm || die "Chmod failed"
-	fperms a+x /opt/${PN}/jre64/bin/* || die "Chmod failed"
+	rm -f ${D}/opt/${PN}/bin/fsnotifier-arm
+	for i in $(ls ${D}/opt/${PN}/jre64/bin/) 
+	do 
+		fperms a+x /opt/${PN}/jre64/bin/${i} || die "Chmod failed" 
+	done;
 	dosym /opt/${PN}/bin/phpstorm.sh /usr/bin/${PN}
 
 	mv "bin/webide.png" "bin/${PN}.png"
