@@ -2,6 +2,7 @@ EAPI=5
 inherit eutils
 
 #EAP_VERSION='EAP-162.426.10'
+#PV="2017.3"
 
 HOMEPAGE="https://www.jetbrains.com/datagrip/"
 DESCRIPTION="Your Swiss Army Knife for Databases and SQL from JetBrains"
