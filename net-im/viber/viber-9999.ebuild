@@ -40,6 +40,7 @@ src_install(){
         sed -i -e '/^Exec/s/Viber/viber/' ${ED}/usr/share/applications/viber.desktop
     else
         fperms 755 /opt/${PN}/Viber
+		fperms 755 /opt/${PN}/QtWebEngineProcess
     fi
 }
 
