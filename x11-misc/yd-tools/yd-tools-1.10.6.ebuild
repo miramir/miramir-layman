@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_{4,5,6} )
+PYTHON_COMPAT=( python3_{4,5,6,7} )
 PLOCALES="be bg el ru"
 
 inherit eutils gnome2-utils l10n xdg-utils python-r1
@@ -16,7 +16,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/slytomcat/yandex-disk-indicator"
 else
 	MY_P="yandex-disk-indicator-${PV}"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 ~x86"
 	SRC_URI="https://github.com/slytomcat/yandex-disk-indicator/archive/${PV}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}"/${MY_P}
 fi
@@ -64,6 +64,8 @@ src_prepare() {
 		done
 	fi
 
+	# Fix bug: https://github.com/slytomcat/yandex-disk-indicator/issues/197
+	epatch "${FILESDIR}"/${P}_disable_show_synchronized_sub_menu_while_updating.patch
 	eapply_user
 }
 
