@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -16,7 +16,7 @@ if [[ ${PV} == *9999 ]]; then
 	EGIT_REPO_URI="https://github.com/slytomcat/yandex-disk-indicator"
 else
 	MY_P="yandex-disk-indicator-${PV}"
-	KEYWORDS="amd64 ~x86"
+	KEYWORDS="~amd64 ~x86"
 	SRC_URI="https://github.com/slytomcat/yandex-disk-indicator/archive/${PV}.tar.gz -> ${MY_P}.tar.gz"
 	S="${WORKDIR}"/${MY_P}
 fi
