@@ -4,6 +4,8 @@
 
 EAPI=6
 
+inherit autotools
+
 DESCRIPTION="X11 keyboard indicator and switcher"
 HOMEPAGE="https://github.com/zen-tools/gxkb"
 SRC_URI="https://github.com/zen-tools/gxkb/archive/v${PV}.tar.gz -> ${P}.tar.gz"
@@ -23,3 +25,8 @@ DEPEND="
 	virtual/pkgconfig
 	${RDEPEND}
 "
+
+src_prepare() {
+	eautoreconf
+	eapply_user
+}
