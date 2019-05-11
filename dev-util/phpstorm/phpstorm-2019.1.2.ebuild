@@ -1,14 +1,14 @@
 EAPI=5
 inherit eutils
 
-EAP_VERSION='191.5849.26'
-#MY_PV='2017.3'
+#EAP_VERSION='191.7141.5'
+#MY_PV='2019.1.2'
 
 HOMEPAGE="http://www.jetbrains.com/phpstorm/"
 DESCRIPTION="PhpStorm"
 SRC_URI="https://download.jetbrains.com/webide/PhpStorm-${EAP_VERSION:-${MY_PV:-${PV}}}.tar.gz"
 
-if [[ x${EAP_VERSION} != 'x' ]]; then
+if [[ x${EAP_VERSION} = 'x' ]]; then
 	KEYWORDS="x86 amd64"
 else
 	KEYWORDS="~x86 ~amd64"
