@@ -64,8 +64,6 @@ src_prepare() {
 		done
 	fi
 
-	# Fix bug: https://github.com/slytomcat/yandex-disk-indicator/issues/197
-	epatch "${FILESDIR}"/${P}_disable_show_synchronized_sub_menu_while_updating.patch
 	eapply_user
 }
 
