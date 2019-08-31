@@ -1,75 +1,85 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
-inherit python-r1 meson gnome2-utils
+GITHUB_USER="yshui"
+KEYWORDS="~amd64 ~x86"
 
-DESCRIPTION="The maintainance fork of compton"
-HOMEPAGE="https://github.com/yshui/compton"
-SRC_URI="https://github.com/yshui/compton/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+inherit desktop github-pkg meson xdg
 
-LICENSE="MIT"
+DESCRIPTION="Compton is a X compositing window manager, fork of xcompmgr-dana."
+
+if [[ ${PV} != "9999" ]]; then
+	MY_PV="${PV/_rc/-rc}"
+	TEST_H_COMMIT="a84877df68873f80ff3620f4993619b35b21f758"
+	SRC_URI="${HOMEPAGE}/archive/v${MY_PV}.tar.gz -> ${P}.tar.gz
+		${HOMEPAGE/${PN}/test.h}/archive/${TEST_H_COMMIT}.tar.gz
+			-> yshui_test.h_${TEST_H_COMMIT}.tar.gz"
+	S="${WORKDIR}/${PN}-${MY_PV}"
+fi
+
+LICENSE="MPL-2.0 MIT"
 SLOT="0"
-KEYWORDS="amd64 ~ppc x86"
-IUSE="dbus +drm opengl +pcre xinerama"
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+IUSE="dbus drm +doc +libconfig +opengl +pcre"
 
-COMMON_DEPEND="${PYTHON_DEPS}
-	dev-libs/libconfig:=
-	dev-libs/libxdg-basedir
-	x11-libs/libX11
-	x11-libs/libXext
-	x11-libs/libxcb
-	x11-libs/xcb-util-renderutil
-	x11-libs/xcb-util-image
-	x11-libs/pixman
+RDEPEND="
 	dev-libs/libev
+	>=x11-libs/libxcb-1.9.2
+	x11-libs/libXext
+	x11-libs/libXdamage
+	x11-libs/libXrender
+	x11-libs/libXrandr
+	x11-libs/libXcomposite
+	x11-libs/pixman
+	x11-libs/xcb-util
+	x11-libs/xcb-util-image
+	x11-libs/xcb-util-renderutil
 	dbus? ( sys-apps/dbus )
+	drm? ( x11-libs/libdrm )
+	libconfig? (
+		>=dev-libs/libconfig-1.4:=
+		dev-libs/libxdg-basedir
+	)
 	opengl? ( virtual/opengl )
-	pcre? ( dev-libs/libpcre:3 )
-	xinerama? ( x11-libs/libXinerama )"
-RDEPEND="${COMMON_DEPEND}
-	x11-apps/xprop
-	x11-apps/xwininfo"
-DEPEND="${COMMON_DEPEND}
-	app-text/asciidoc
-	virtual/pkgconfig
-	x11-base/xorg-proto
-	drm? ( x11-libs/libdrm )"
+	pcre? ( >=dev-libs/libpcre-8.20:3 )"
+DEPEND="${RDEPEND}
+	dev-libs/uthash"
+BDEPEND="doc? ( app-text/asciidoc )"
 
-pkg_setup() {
-	if [[ ${MERGE_TYPE} != binary ]]; then
-		tc-export CC
+src_unpack() {
+	if [[ ${PV} == "9999" ]]; then
+		git-r3_src_unpack
+	else
+		# compton-7-rc1.tar.gz is broken, so patch in the missing git submodule by hand
+		default
+		cd "${S}/subprojects" || die
+		rmdir test.h || die
+		ln -rs "../../test.h-${TEST_H_COMMIT}" test.h || die
 	fi
 }
 
 src_configure() {
+	# TODO: support FEATURES=test properly
 	local emesonargs=(
-		--buildtype=release
-		-Dopengl=$(usex opengl true false)
-		-Dregex=$(usex pcre true false)
-		-Ddbus=$(usex dbus true false)
-		-Dvsync_drm=$(usex drm true false)
-		-Dxinerama=$(usex xinerama true false)
+		"$(meson_use dbus)"
+		"$(meson_use doc with_docs)"
+		"$(meson_use drm vsync_drm)"
+		"$(meson_use libconfig config_file)"
+		"$(meson_use opengl)"
+		"$(meson_use pcre regex)"
 	)
 	meson_src_configure
 }
 
-src_compile() {
-	meson_src_compile
-	eninja -C ${WORKDIR}/${P}-build
-}
-
 src_install() {
-	default
-	DESTDIR=${D} eninja -C ${WORKDIR}/${P}-build install
-	docinto examples
-	dodoc compton.sample.conf dbus-examples/*
-	python_foreach_impl python_newscript bin/compton-convgen.py compton-convgen
-}
+	dodoc CONTRIBUTORS
 
-pkg_postinst() {
-	gnome2_icon_cache_update
+	docinto examples
+	dodoc compton-*-fshader-win.glsl compton.sample.conf
+	if use dbus; then
+		dodoc -r dbus-examples/
+	fi
+
+	meson_src_install
 }
