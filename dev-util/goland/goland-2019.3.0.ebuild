@@ -1,8 +1,8 @@
 EAPI=5
 inherit eutils
 
-EAP_VERSION='193.4778.20'
-#MY_PV='2017.3'
+#EAP_VERSION='193.5233.18'
+MY_PV='2019.3'
 
 HOMEPAGE="https://www.jetbrains.com/go/"
 DESCRIPTION="GoLand is a cross-platform IDE built specially for Go developers"
