@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-PYTHON_COMPAT=( python3_{4,5,6,7} )
+PYTHON_COMPAT=( python3_{7,8} )
 PLOCALES="be bg el ru"
 
 inherit eutils gnome2-utils l10n xdg-utils python-r1
