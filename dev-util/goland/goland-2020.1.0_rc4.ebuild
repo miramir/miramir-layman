@@ -1,7 +1,7 @@
 EAPI=5
 inherit eutils
 
-EAP_VERSION='201.6487.5'
+EAP_VERSION='201.6668.63'
 #MY_PV='2019.3'
 
 HOMEPAGE="https://www.jetbrains.com/go/"
