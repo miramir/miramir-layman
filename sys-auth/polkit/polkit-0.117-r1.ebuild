@@ -60,6 +60,11 @@ QA_MULTILIB_PATHS="
 	usr/lib/polkit-1/polkit-agent-helper-1
 	usr/lib/polkit-1/polkitd"
 
+PATCHES=(
+	# bug 660880
+	"${FILESDIR}"/polkit-0.115-elogind.patch
+)
+
 src_prepare() {
 	if use duktape ; then
 		PATCHES+=(
