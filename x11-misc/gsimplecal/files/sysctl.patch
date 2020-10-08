@@ -1,0 +1,24 @@
+diff -u -r gsimplecal-2.1.orig/configure.ac gsimplecal-2.1/configure.ac
+--- gsimplecal-2.1.orig/configure.ac	2020-10-08 07:31:59.849957487 +0500
++++ gsimplecal-2.1/configure.ac	2020-10-08 07:34:54.770334708 +0500
+@@ -60,7 +60,7 @@
+                   sys/types.h \
+                   sys/ipc.h \
+                   sys/sem.h \
+-                  sys/sysctl.h \
++                  linux/sysctl.h \
+                   signal.h \
+                   limits.h])
+ 
+diff -u -r gsimplecal-2.1.orig/src/Unique.cpp gsimplecal-2.1/src/Unique.cpp
+--- gsimplecal-2.1.orig/src/Unique.cpp	2020-10-08 07:31:59.849957487 +0500
++++ gsimplecal-2.1/src/Unique.cpp	2020-10-08 07:33:39.710025675 +0500
+@@ -4,7 +4,7 @@
+ #include <limits.h>
+ #include <signal.h>
+ #include <sys/sem.h>
+-#include <sys/sysctl.h>
++#include <linux/sysctl.h>
+ #include <sys/types.h>
+ 
+ #include "Unique.hpp"

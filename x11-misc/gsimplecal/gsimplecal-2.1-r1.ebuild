@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
+EAPI="7"
 
 inherit autotools
 
@@ -22,7 +22,12 @@ DEPEND="${RDEPEND}
 
 S=$WORKDIR/$PF
 
+PATCHES=(
+	"${FILESDIR}"/sysctl.patch
+)
+
 src_prepare() {
+	default
 	eautoreconf
 }
 
